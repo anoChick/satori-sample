@@ -6,6 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const text = `${req.query.text}`;
   const fontBufferArray = await fetch(
     (process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
@@ -13,7 +14,7 @@ export default async function handler(
   ).then((res) => res.arrayBuffer());
   const fontBuffer = Buffer.from(fontBufferArray);
   res.setHeader("content-type", "font/ttf");
-  const subsetBuffer = await subsetFont(fontBuffer, "あのイヴォ", {
+  const subsetBuffer = await subsetFont(fontBuffer, text, {
     targetFormat: "truetype",
   });
 
