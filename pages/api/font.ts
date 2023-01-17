@@ -2,6 +2,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import subsetFont from "subset-font";
 
+export const config = {
+  runtime: "edge",
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -17,6 +21,5 @@ export default async function handler(
   const subsetBuffer = await subsetFont(fontBuffer, text, {
     targetFormat: "truetype",
   });
-
   res.status(200).send(subsetBuffer);
 }
