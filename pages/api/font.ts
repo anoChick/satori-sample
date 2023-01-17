@@ -7,7 +7,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const fontBufferArray = await fetch(
-    "http://localhost:3000/DotGothic16-Regular.ttf"
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000") + "/DotGothic16-Regular.ttf"
   ).then((res) => res.arrayBuffer());
   const fontBuffer = Buffer.from(fontBufferArray);
   res.setHeader("content-type", "font/ttf");
