@@ -18,7 +18,7 @@
     "next": "13.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "satori": "github:vercel/satori",
+    "satori": "^0.1.1",
     "subset-font": "^2.0.0",
     "typescript": "4.9.4"
   },
