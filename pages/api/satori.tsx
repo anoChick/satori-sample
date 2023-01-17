@@ -4,7 +4,10 @@ export const config = {
   runtime: "edge",
 };
 
-const FONT_URL = "http://localhost:3000/DotGothic16-Regular.ttf";
+const FONT_URL =
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000") + "/DotGothic16-Regular.ttf";
 
 export default async function handler(req: NextRequest) {
   const fontBufferArray = await fetch(FONT_URL).then((r) => r.arrayBuffer());
