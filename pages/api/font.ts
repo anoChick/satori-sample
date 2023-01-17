@@ -4,6 +4,9 @@ import subsetFont from "subset-font";
 const FONT_URL = "http://localhost:3000/DotGothic16-Regular.ttf";
 const CONTENT_TYPE = "font/ttf";
 const FONT_FORMAT = "truetype";
+export const config = {
+  runtime: "edge",
+};
 
 export default async function handler(
   req: NextApiRequest,

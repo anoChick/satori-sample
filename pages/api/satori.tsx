@@ -11,7 +11,6 @@ export default async function handler(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const text = `${searchParams.get("text") ?? "noname"}`;
-  console.log(searchParams);
   const svg = await satori(
     <div style={{ display: "flex", color: "black" }}>hello, {text}</div>,
     {
